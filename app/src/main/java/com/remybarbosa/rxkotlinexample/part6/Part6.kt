@@ -79,7 +79,7 @@ class Part6 : AppCompatActivity() {
                 ))
     }
 
-    // Create Observable who throw Exception until 3 third try
+    // Create Observable who throw Exception until 3 third try, do not look it too much i'm not proud of it :')
     fun toObservableAndError(observableSuccess: Observable<ArticleRemoteModel>): Observable<ArticleRemoteModel> {
         var count = 0
         return Observable.create({
