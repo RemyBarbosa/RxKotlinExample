@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.remybarbosa.rxkotlinexample">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SimpleBindingActivity"/>
+        <activity android:name=".part3.Part3"/>
+        <activity android:name=".part4and5.Part4And5"/>
+        <activity android:name=".part6.Part6"/>
     </application>
 
 </manifest>

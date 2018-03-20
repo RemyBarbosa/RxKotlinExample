@@ -2,11 +2,10 @@ package com.remybarbosa.rxkotlinexample
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import io.reactivex.Observable
+import com.remybarbosa.rxkotlinexample.part4and5.Part4And5
+import com.remybarbosa.rxkotlinexample.part3.Part3
+import com.remybarbosa.rxkotlinexample.part6.Part6
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_simple_binding.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        goSimpleBindings.setOnClickListener { SimpleBindingActivity.start(this) }
+        goSimpleBinding.setOnClickListener { Part3.start(this) }
+        goSimpleBackgroundService.setOnClickListener { Part4And5.start(this) }
+        goHandleError.setOnClickListener { Part6.start(this) }
     }
 }

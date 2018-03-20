@@ -1,4 +1,4 @@
-package com.remybarbosa.rxkotlinexample
+package com.remybarbosa.rxkotlinexample.part3
 
 import android.content.Context
 import android.content.Intent
@@ -6,16 +6,19 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.EditText
+import com.remybarbosa.rxkotlinexample.R
 import io.reactivex.Observable
-import kotlinx.android.synthetic.main.activity_simple_binding.*
+import kotlinx.android.synthetic.main.activity_part_3.*
 
-class SimpleBindingActivity : AppCompatActivity() {
+/////////////
+/// Part 3. : Data Binding, textview/edit, observable/action
+
+class Part3 : AppCompatActivity() {
 
     companion object {
         private fun intent(context: Context): Intent {
-            return Intent(context, SimpleBindingActivity::class.java)
+            return Intent(context, Part3::class.java)
         }
 
         fun start(context: Context) {
@@ -26,7 +29,7 @@ class SimpleBindingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_simple_binding)
+        setContentView(R.layout.activity_part_3)
 
         editText.toObservable()
                 .map { text -> text + text }
