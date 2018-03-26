@@ -4,10 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.EditText
-import com.google.gson.annotations.SerializedName
 import com.remybarbosa.rxkotlinexample.R
 import com.remybarbosa.rxkotlinexample.service.ArticleRetrofitDataSource
 import com.remybarbosa.rxkotlinexample.service.model.ArticleMapper
@@ -16,10 +12,9 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.Observables
+import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_part_6.*
-import org.joda.time.DateTime
-import java.sql.Time
 import java.util.concurrent.TimeUnit
 
 /////////////
@@ -89,6 +84,7 @@ class Part6 : AppCompatActivity() {
             } else {
                 count = count.inc()
                 it.onNext(observableSuccess.blockingFirst())
+                it.onComplete()
             }
         })
     }
