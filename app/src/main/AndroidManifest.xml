@@ -22,6 +22,8 @@
         <activity android:name=".part3.Part3"/>
         <activity android:name=".part4and5.Part4And5"/>
         <activity android:name=".part6.Part6"/>
+        <activity android:name=".activity_part_autocomplete.PartAutoComplete"/>
+        <activity android:name=".activity_part_autocomplete.PartAutoCompleteBlank"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.remybarbosa.rxkotlinexample.service.model
+package com.remybarbosa.rxkotlinexample.service.model.article
 
 import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime

@@ -14,11 +14,11 @@ import kotlinx.android.synthetic.main.activity_part_3.*
 /////////////
 /// Part 3. : Data Binding, textview/edit, observable/action
 
-class Part3 : AppCompatActivity() {
+class Part3Blank : AppCompatActivity() {
 
     companion object {
         private fun intent(context: Context): Intent {
-            return Intent(context, Part3::class.java)
+            return Intent(context, Part3Blank::class.java)
         }
 
         fun start(context: Context) {
@@ -31,29 +31,23 @@ class Part3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_part_3)
 
-        editText.toObservable()
-                .map { text -> text + text }
-                .subscribe { finalText ->
-                    textView.text = finalText
-                }
     }
 
+    fun EditText.toObservable(): Observable<String> {
+        return Observable.create({
+            val watcher = object : TextWatcher {
 
-}
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    it.onNext(p0.toString())
+                }
 
-fun EditText.toObservable(): Observable<String> {
-    return Observable.create({
-        val watcher = object : TextWatcher {
+                override fun afterTextChanged(p0: Editable?) {}
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                it.onNext(p0.toString())
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             }
+            this.addTextChangedListener(watcher)
+            it.setCancellable { this.removeTextChangedListener(watcher) }
+        })
+    }
 
-            override fun afterTextChanged(p0: Editable?) {}
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-        }
-        this.addTextChangedListener(watcher)
-        it.setCancellable { this.removeTextChangedListener(watcher) }
-    })
 }

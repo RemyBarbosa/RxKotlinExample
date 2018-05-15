@@ -1,4 +1,4 @@
-package com.remybarbosa.rxkotlinexample.service.model
+package com.remybarbosa.rxkotlinexample.service.model.article
 
 class ArticleMapper {
     fun remoteEntityToViewModel(articleRemote: ArticleRemoteModel): ArticleViewModel {

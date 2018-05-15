@@ -1,6 +1,6 @@
 package com.remybarbosa.rxkotlinexample.service
 
-import com.remybarbosa.rxkotlinexample.service.model.ArticleRemoteModel
+import com.remybarbosa.rxkotlinexample.service.model.article.ArticleRemoteModel
 import com.remybarbosa.rxkotlinexample.utils.GsonBuilder.getGson
 import io.reactivex.Observable
 import retrofit2.Retrofit
